@@ -78,114 +78,92 @@
     [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topPadding-[childView(==height)]" options:0 metrics:@{ @"topPadding": @(topPadding), @"height": @(height) } views:@{ @"childView": self }]];
 }
 
-- (void)addConstraintsToVerticallyAlignInParent:(UIView *)parentView withBottomOffset:(CGFloat)bottomOffset andHeight:(CGFloat)height
+- (void)addConstraintsToVerticallyAlignWithBottomOffset:(CGFloat)bottomOffset andHeight:(CGFloat)height
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[childView(==height)]-bottomOffset-|"
-                                                                       options:0
-                                                                       metrics:@{ @"bottomOffset": [NSNumber numberWithFloat:bottomOffset], @"height": [NSNumber numberWithFloat:height] }
-                                                                         views:@{ @"childView": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[childView(==height)]-bottomOffset-|"
+                                                                           options:0
+                                                                           metrics:@{ @"bottomOffset": [NSNumber numberWithFloat:bottomOffset], @"height": [NSNumber numberWithFloat:height] }
+                                                                             views:@{ @"childView": self }]];
 }
 
-- (NSArray *)addConstraintsToParentView:(UIView *)parentView forHeight:(CGFloat)height
+- (NSArray *)addConstraintsForHeight:(CGFloat)height
 {
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==height)]" options:0 metrics:@{ @"height": [NSNumber numberWithFloat:height] } views:@{ @"view": self }];
-    [parentView addConstraints:constraints];
+    [self.superview addConstraints:constraints];
     return constraints;
 }
 
-- (void)addConstraintsToParentView:(UIView *)parentView forBottomSpace:(CGFloat)space
+- (void)addConstraintsForBottomSpace:(CGFloat)space
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-space-|" options:0 metrics:@{ @"space": [NSNumber numberWithFloat:space] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-space-|" options:0 metrics:@{ @"space": [NSNumber numberWithFloat:space] } views:@{ @"view": self }]];
 }
 
-- (void)addConstraintsToParentView:(UIView *)parentView forWidth:(CGFloat)width
+- (void)addConstraintsForWidth:(CGFloat)width
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]" options:0 metrics:@{ @"width": [NSNumber numberWithFloat:width] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]" options:0 metrics:@{ @"width": [NSNumber numberWithFloat:width] } views:@{ @"view": self }]];
 }
 
-- (void)addConstraintsToParentView:(UIView *)parentView forVerticalOffset:(CGFloat)verticalOffset
+- (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-verticalOffset-[view]" options:0 metrics:@{ @"verticalOffset": [NSNumber numberWithFloat:verticalOffset] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-verticalOffset-[view]" options:0 metrics:@{ @"verticalOffset": [NSNumber numberWithFloat:verticalOffset] } views:@{ @"view": self }]];
 }
 
-- (void)addConstraintsToAlignLeftInParent:(UIView *)parentView withOffset:(CGFloat)offset
+- (void)addConstraintsToAlignLeftWithOffset:(CGFloat)offset
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-offset-[view]" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-offset-[view]" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
 }
 
-- (void)addConstraintsToAlignRightInParent:(UIView *)parentView withOffset:(CGFloat)offset
+- (void)addConstraintsToAlignRightWithOffset:(CGFloat)offset
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-offset-|" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-offset-|" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
 }
 
-- (NSArray *)addConstraintsToAlignTopInParent:(UIView *)parentView withOffset:(CGFloat)offset
+- (NSArray *)addConstraintsToAlignTopWithOffset:(CGFloat)offset
 {
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-offset-[view]" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }];
-    [parentView addConstraints:constraints];
+    [self.superview addConstraints:constraints];
     return constraints;
 }
 
-- (void)addConstraintsToAlignBottomInParent:(UIView *)parentView withOffset:(CGFloat)offset
+- (void)addConstraintsToAlignBottomWithOffset:(CGFloat)offset
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-offset-|" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-offset-|" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
 }
 
-- (void)addConstraintsToParentView:(UIView *)parentView forVerticalOffset:(CGFloat)verticalOffset toView:(UIView *)otherView
+- (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset toView:(UIView *)otherView
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-verticalOffset-[otherView]" options:0 metrics:@{ @"verticalOffset": [NSNumber numberWithFloat:verticalOffset] } views:@{ @"view": self,  @"otherView": otherView }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-verticalOffset-[otherView]" options:0 metrics:@{ @"verticalOffset": [NSNumber numberWithFloat:verticalOffset] } views:@{ @"view": self,  @"otherView": otherView }]];
 }
 
-- (void)addConstraintsToParentView:(UIView *)parentView forHorizontalOffset:(CGFloat)horizontalOffset toView:(UIView *)otherView
+- (void)addConstraintsForHorizontalOffset:(CGFloat)horizontalOffset toView:(UIView *)otherView
 {
-    [parentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-horizontalOffset-[otherView]" options:0 metrics:@{ @"horizontalOffset": [NSNumber numberWithFloat:horizontalOffset] } views:@{ @"view": self,  @"otherView": otherView }]];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-horizontalOffset-[otherView]" options:0 metrics:@{ @"horizontalOffset": [NSNumber numberWithFloat:horizontalOffset] } views:@{ @"view": self,  @"otherView": otherView }]];
 }
 
-- (NSLayoutConstraint *)addConstraintsToHorizontallyAlignCenterInParent:(UIView *)parentView toView:(UIView *)otherView
+- (NSLayoutConstraint *)addConstraintsToHorizontallyAlignCenterIntoView:(UIView *)otherView
 {
-    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self
-                                                                         attribute:NSLayoutAttributeCenterX
-                                                                         relatedBy:NSLayoutRelationEqual
-                                                                            toItem:otherView
-                                                                         attribute:NSLayoutAttributeCenterX
-                                                                        multiplier:1.f constant:0.f];
-    [parentView addConstraint:centerXConstraint];
+    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:otherView attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
+    [self.superview addConstraint:centerXConstraint];
     return centerXConstraint;
 }
 
-- (NSLayoutConstraint *)addConstraintsToVerticallyAlignCenterInParent:(UIView *)parentView toView:(UIView *)otherView forOffset:(CGFloat)offset
+- (NSLayoutConstraint *)addConstraintsToVerticallyAlignCenterIntoView:(UIView *)otherView forOffset:(CGFloat)offset
 {
-    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self
-                                                                         attribute:NSLayoutAttributeCenterY
-                                                                         relatedBy:NSLayoutRelationEqual
-                                                                            toItem:otherView
-                                                                         attribute:NSLayoutAttributeCenterY
-                                                                        multiplier:1.f constant:offset];
-    [parentView addConstraint:centerYConstraint];
+    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:otherView attribute:NSLayoutAttributeCenterY multiplier:1.f constant:offset];
+    [self.superview addConstraint:centerYConstraint];
     return centerYConstraint;
 }
 
-- (void)addConstraintsForEqualsHeightsInParent:(UIView *)parentView toView:(UIView *)otherView
+- (void)addConstraintsForEqualsHeightsIntoView:(UIView *)otherView
 {
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self
-                                                                  attribute:NSLayoutAttributeHeight
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:otherView
-                                                                  attribute:NSLayoutAttributeHeight
-                                                                 multiplier:1
-                                                                   constant:0];
-    [parentView addConstraint:constraint];
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:otherView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+    [self.superview addConstraint:constraint];
 }
 
-- (void)addConstraintsForEqualsWidthsInParent:(UIView *)parentView toView:(UIView *)otherView
+- (void)addConstraintsForEqualsWidthsIntoView:(UIView *)otherView
 {
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:otherView
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1
-                                                                   constant:0];
-    [parentView addConstraint:constraint];
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:otherView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+    [self.superview addConstraint:constraint];
 }
 
 @end
