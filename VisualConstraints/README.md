@@ -22,7 +22,7 @@ pod "VisualConstraints"
 
 ## Author
 
-Catalina Turlea, catalina.turlea@1und1.de
+Catalina Turlea, catalina.turlea@gmail.com
 
 ## License
 
