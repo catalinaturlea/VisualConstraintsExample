@@ -1,0 +1,17 @@
+PODS:
+  - FBSnapshotTestCase (1.6)
+  - VisualConstraints (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - VisualConstraints (from `../`)
+
+EXTERNAL SOURCES:
+  VisualConstraints:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 9d5fe43b29ae3a0ed8fc829477971b281038f748
+  VisualConstraints: ea644ff03bf90e93a96ff6185797c1b14c87bbbf
+
+COCOAPODS: 0.36.0
