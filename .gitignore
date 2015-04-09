@@ -1,0 +1,10 @@
+
+*.xcscheme
+
+*.xcsettings
+
+*.xccheckout
+
+*.xcbkptlist
+
+*.xcuserstate

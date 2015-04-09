@@ -10,30 +10,38 @@
 
 @interface UIView (VisualConstraints)
 
-- (void)addConstraintsToFillSuperview;
-- (void)addConstraintsToVerticalFillSuperview;
-- (NSLayoutConstraint *)addConstraintsToCenterHorizontalInSuperview;
-- (NSLayoutConstraint *)addConstraintsToCenterHorizontalInSuperviewWithOffset:(CGFloat)offset;
-- (NSLayoutConstraint *)addConstraintsToVerticalCenterInSuperview;
-- (NSLayoutConstraint *)addConstraintsToVerticalCenterInSuperviewWithOffset:(CGFloat)offset;
-- (void)addConstraintsToCenterInSuperview ;
-- (void)addConstraintsToCenterHorizontalInSupervieWithWidth:(CGFloat)width;
-- (void)addConstraintsToHorizontalFillSuperviewWithLeftPadding:(CGFloat)leftPadding andRightPadding:(CGFloat)rightPadding;
-- (void)addConstraintsToVerticalFillSuperviewWithTopPadding:(CGFloat)topPadding andBottomPadding:(CGFloat)bottomPadding;
-- (void)addConstraintsToAlignTopInSupervewWithTopPadding:(CGFloat)topPadding andHeight:(CGFloat)height;
-- (void)addConstraintsToVerticallyAlignWithBottomOffset:(CGFloat)bottomOffset andHeight:(CGFloat)height;
-- (NSArray *)addConstraintsForHeight:(CGFloat)height;
-- (void)addConstraintsForBottomSpace:(CGFloat)space;
-- (void)addConstraintsForWidth:(CGFloat)width;
-- (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset;
+// Fill
+- (void)addConstraintsToFillHorizontal;
+- (void)addConstraintsToFillVertical;
+- (void)addConstraintsToFillHorizontalWithLeftPadding:(CGFloat)leftPadding rightPadding:(CGFloat)rightPadding;
+- (void)addConstraintsToFillVerticalWithTopPadding:(CGFloat)topPadding bottomPadding:(CGFloat)bottomPadding;
+
+// Center
+- (NSLayoutConstraint *)addConstraintsToCenterHorizontal;
+- (NSLayoutConstraint *)addConstraintsToCenterHorizontalWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)addConstraintsToCenterVertical;
+- (NSLayoutConstraint *)addConstraintsToCenterVerticalWithOffset:(CGFloat)offset;
+- (void)addConstraintsToCenter;
+- (void)addConstraintsToCenterHorizontalWithWidth:(CGFloat)width;
+
+// Align
+- (void)addConstraintsToAlignTopWithPadding:(CGFloat)topPadding height:(CGFloat)height;
 - (void)addConstraintsToAlignLeftWithOffset:(CGFloat)offset;
 - (void)addConstraintsToAlignRightWithOffset:(CGFloat)offset;
 - (void)addConstraintsToAlignBottomWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)addConstraintsToAlignHorizontalCenterToView:(UIView *)otherView;
+- (NSLayoutConstraint *)addConstraintsToAlignVerticalCenterToView:(UIView *)otherView forOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)addConstraintsForHeight:(CGFloat)height;
+- (NSLayoutConstraint *)addConstraintsForWidth:(CGFloat)width;
+- (void)addConstraintsForBottomSpace:(CGFloat)space;
+- (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset;
+
+// Other view
 - (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset toView:(UIView *)otherView;
 - (void)addConstraintsForHorizontalOffset:(CGFloat)horizontalOffset toView:(UIView *)otherView;
-- (NSLayoutConstraint *)addConstraintsToHorizontallyAlignCenterIntoView:(UIView *)otherView;
-- (NSLayoutConstraint *)addConstraintsToVerticallyAlignCenterIntoView:(UIView *)otherView forOffset:(CGFloat)offset;
-- (void)addConstraintsForEqualsHeightsWithView:(UIView *)otherView;
-- (void)addConstraintsForEqualsWidthsWidthView:(UIView *)otherView;
+
+- (void)addConstraintsForEqualsHeightsToView:(UIView *)otherView;
+- (void)addConstraintsForEqualsWidthsToView:(UIView *)otherView;
 
 @end
