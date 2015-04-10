@@ -14,16 +14,24 @@
 
 @implementation VCViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)viewDidLoad {
+	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	UIButton *b1 = [[UIButton alloc] init];
+	UIButton *b2 = [[UIButton alloc] init];
+	UIButton *b3 = [[UIButton alloc] init];
+
+	for (UIButton *b in @[b1, b2, b3]) {
+		[b setTranslatesAutoresizingMaskIntoConstraints:NO];
+		[self.view addSubview:b];
+		[b.layer setBorderWidth:1];
+		[b setBackgroundColor:[UIColor redColor]];
+		[b setTitle:@"test" forState:UIControlStateNormal];
+	}
+	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:b1 attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[b1]-0-[b2(==b1)]-0-[b3(==b1)]-0-|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{ @"b1":b1, @"b2":b2, @"b3":b3 }]];
 }
 
 @end

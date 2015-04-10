@@ -13,6 +13,7 @@
 		004554141AC01464008A9500 /* UIView+VisualConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 004554101AC01464008A9500 /* UIView+VisualConstraints.m */; };
 		004554151AC01464008A9500 /* UIView+VisualConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 004554101AC01464008A9500 /* UIView+VisualConstraints.m */; };
 		004554161AC01464008A9500 /* UIView+VisualConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 004554101AC01464008A9500 /* UIView+VisualConstraints.m */; };
+		006D70DD1AD6C53B009458C3 /* UIScrollView+VisualConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 006D70DC1AD6C53B009458C3 /* UIScrollView+VisualConstraints.m */; };
 		16B1FD7880E651E0FF9EC7CF /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 6056931DEFAD0811462B288F /* UIImage+Diff.h */; };
 		1749C845A9F8CF8DF054B9D8 /* Pods-VisualConstraints-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3372F6E9D6C9BE139CA035B8 /* Pods-VisualConstraints-dummy.m */; };
 		178B4F18D6CA430FF4DEF16F /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1028BAA13BAB212A12F6DE20 /* FBSnapshotTestCase.h */; };
@@ -57,6 +58,8 @@
 /* Begin PBXFileReference section */
 		0045540F1AC01464008A9500 /* UIView+VisualConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+VisualConstraints.h"; path = "Pod/Classes/UIView+VisualConstraints.h"; sourceTree = "<group>"; };
 		004554101AC01464008A9500 /* UIView+VisualConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+VisualConstraints.m"; path = "Pod/Classes/UIView+VisualConstraints.m"; sourceTree = "<group>"; };
+		006D70DB1AD6C53B009458C3 /* UIScrollView+VisualConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+VisualConstraints.h"; path = "Pod/Classes/UIScrollView+VisualConstraints.h"; sourceTree = "<group>"; };
+		006D70DC1AD6C53B009458C3 /* UIScrollView+VisualConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+VisualConstraints.m"; path = "Pod/Classes/UIScrollView+VisualConstraints.m"; sourceTree = "<group>"; };
 		058F1B2313BC289AC57B645B /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/UIImage+Compare.h"; sourceTree = "<group>"; };
 		05AAFE984CD927D4B657807D /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
 		1028BAA13BAB212A12F6DE20 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 			children = (
 				0045540F1AC01464008A9500 /* UIView+VisualConstraints.h */,
 				004554101AC01464008A9500 /* UIView+VisualConstraints.m */,
+				006D70DB1AD6C53B009458C3 /* UIScrollView+VisualConstraints.h */,
+				006D70DC1AD6C53B009458C3 /* UIScrollView+VisualConstraints.m */,
 			);
 			name = VisualConstraints;
 			path = ../..;
@@ -455,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006D70DD1AD6C53B009458C3 /* UIScrollView+VisualConstraints.m in Sources */,
 				C39D934A1F7EE4367C52DA63 /* Pods-Tests-dummy.m in Sources */,
 				004554121AC01464008A9500 /* UIView+VisualConstraints.m in Sources */,
 			);
