@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
 *.xcuserstate
+=======
+*.xcscheme
+
+*.xcsettings
+
+*.xccheckout
+
+*.xcbkptlist
+>>>>>>> origin/master
 
 *.xcuserstate

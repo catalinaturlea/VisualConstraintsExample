@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -83,8 +84,22 @@
                             <constraint firstItem="XWz-IW-ABj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="aQz-rK-BHy"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="4DU-dv-BE0" secondAttribute="bottom" constant="8" id="c5t-W9-DAx"/>
                             <constraint firstAttribute="trailing" secondItem="XWz-IW-ABj" secondAttribute="trailing" id="hF4-In-odx"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uS4-N5-9yh">
+                                <rect key="frame" x="111" y="269" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uS4-N5-9yh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="0lu-Yl-GqT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uS4-N5-9yh" secondAttribute="trailing" constant="10" id="SQD-rP-g9c"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uS4-N5-9yh" secondAttribute="bottom" constant="10" id="eqa-gn-Haq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputField" destination="uS4-N5-9yh" id="3XU-Gb-kvK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

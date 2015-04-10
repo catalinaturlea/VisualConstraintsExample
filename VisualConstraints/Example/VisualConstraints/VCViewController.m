@@ -9,6 +9,7 @@
 #import "VCViewController.h"
 
 @interface VCViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *inputField;
 
 @end
 
@@ -16,7 +17,18 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor redColor];
+    [line setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.inputField addSubview:line];
+    
+    // Vertical constraints
+    [self.inputField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line-(-1)-|" options:0 metrics:nil views:@{ @"line": line}]];
+    
+    // Horizontal constraints
+    [self.inputField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(-8)-[line]-8-|" options:0 metrics:nil views:@{ @"line": line}]];
+    
 
 	UIButton *b1 = [[UIButton alloc] init];
 	UIButton *b2 = [[UIButton alloc] init];
