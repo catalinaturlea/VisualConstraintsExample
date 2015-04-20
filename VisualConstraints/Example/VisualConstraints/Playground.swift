@@ -201,4 +201,67 @@ class SwiftViewController: UIViewController {
         
         view.layoutIfNeeded()
     }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    
+    }
 }
+
+class YourViewController: UIViewController {
+    
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    
+    override
+    func viewDidLoad (){
+        textView.text = "flaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdflflaskjflksdajflkasjfl kjasdfl"
+        
+        textView.addObserver(self, forKeyPath: "contentSize", options:NSKeyValueObservingOptions.New, context: nil)
+        
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        textViewHeightConstraint.constant = textView.contentSize.height
+        
+    }
+    
+    deinit {
+        self.textView.removeObserver(self, forKeyPath: "contentSize")
+    }
+}
+
+class MyTableViewController: UITableViewController {
+    
+    var headerView: UIView!
+    
+    
+    override func viewDidLoad (){
+        headerView = NSBundle.mainBundle().loadNibNamed("test", owner: nil, options: nil)[0] as? UIView
+//        headerView = NSBundle.mainBundle().loadNibNamed("CustomHeader", owner: self, options: nil)[0]
+//        headerView.backgroundColor = UIColor.redColor()
+        
+        var insideView = UIView.new();
+        insideView.setTranslatesAutoresizingMaskIntoConstraints(false)
+//        headerView.addSubview(insideView);
+        
+//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[view]-|", options: nil, metrics: nil, views: ["view": view]))
+//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[view]-|", options: nil, metrics: nil, views: ["view": view]))
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell.new()
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerView
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+    }
+}
+
