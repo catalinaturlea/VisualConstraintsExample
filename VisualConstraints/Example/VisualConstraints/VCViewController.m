@@ -10,7 +10,7 @@
 
 #import "VisualConstraints-Bridging-Header.h"
 
-@interface VCViewController () <UITextViewDelegate>
+@interface VCViewController () <UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -52,6 +52,8 @@
 
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[b1]-0-[b2(b1)]-0-[b3(b1)]-0-|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{ @"b1":b1, @"b2":b2, @"b3":b3 }]];
     
+    UICollectionView * collectionView;
+    
     
 //    UIViewController *view = [[SwiftViewController alloc] init];
     
@@ -61,7 +63,7 @@
 //    [self.view addSubview:view.view];
 //    [view didMoveToParentViewController:self];
     
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:nil views:@{ @"view": view.view}]];
+//    [self.view addConstraints:[NSLayoutConstraint cons`traintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:nil views:@{ @"view": view.view}]];
 //        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:nil views:@{ @"view": view.view}]];
     [self.textView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionInitial context:nil];
     
@@ -75,6 +77,14 @@
     buttonFrame.origin.x += self.scrollView.contentOffset.x;
     [self.button setFrame:buttonFrame];
     
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (void)dealloc {

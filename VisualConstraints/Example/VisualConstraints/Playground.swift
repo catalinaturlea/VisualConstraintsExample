@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+class MyCell : UITableViewCell {
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    override func awakeFromNib() {
+    }
+}
+
+class MyImageView : UIImageView {
+}
+
 class SwiftViewController: UIViewController {
     
     @IBOutlet weak var coverImage: UIImageView!
@@ -230,22 +240,40 @@ class YourViewController: UIViewController {
     }
 }
 
+class MyView :UIView {
+    @IBOutlet weak var headerView: UIView!
+    
+//    required init(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        if(headerView != nil){
+//        self.addSubview(headerView)
+//        }
+//    }
+//    
+//    override init(frame: CGRect) { // for using CustomView in code
+//        super.init(frame: frame)
+//        self.addSubview(headerView)
+//    }
+
+    
+//    init (){
+////        super.init()
+//        self.addSubview(headerView)
+//    }
+    
+//    override func awakeFromNib() {
+//        self.addSubview(headerView)
+//    }
+    
+}
+
 class MyTableViewController: UITableViewController {
     
-    var headerView: UIView!
+  var headerView: UIView!
     
     
     override func viewDidLoad (){
         headerView = NSBundle.mainBundle().loadNibNamed("test", owner: nil, options: nil)[0] as? UIView
-//        headerView = NSBundle.mainBundle().loadNibNamed("CustomHeader", owner: self, options: nil)[0]
-//        headerView.backgroundColor = UIColor.redColor()
-        
-        var insideView = UIView.new();
-        insideView.setTranslatesAutoresizingMaskIntoConstraints(false)
-//        headerView.addSubview(insideView);
-        
-//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[view]-|", options: nil, metrics: nil, views: ["view": view]))
-//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[view]-|", options: nil, metrics: nil, views: ["view": view]))
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -257,7 +285,7 @@ class MyTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return headerView
+        return NSBundle.mainBundle().loadNibNamed("test", owner: nil, options: nil)[0] as? UIView
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

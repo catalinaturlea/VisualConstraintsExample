@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		0054AD4A1AC3F80D000A991E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054AD491AC3F80D000A991E /* MapKit.framework */; };
 		00B6896A1ADBCBEB006BFAA4 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B689691ADBCBEB006BFAA4 /* Playground.swift */; };
-		00DA671E1AE54CC800220DB1 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00DA671D1AE54CC800220DB1 /* test.xib */; };
+		00EB7DE91AE8D3AC005239C4 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EB7DE81AE8D3AC005239C4 /* MyTableViewCell.m */; };
+		00EB7DEC1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.26.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EB7DEA1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.26.png */; };
+		00EB7DED1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.33.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EB7DEB1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.33.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -43,7 +45,10 @@
 		0054AD491AC3F80D000A991E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		00B689681ADBCBEA006BFAA4 /* VisualConstraints-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisualConstraints-Bridging-Header.h"; sourceTree = "<group>"; };
 		00B689691ADBCBEB006BFAA4 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
-		00DA671D1AE54CC800220DB1 /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
+		00EB7DE71AE8D3AC005239C4 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		00EB7DE81AE8D3AC005239C4 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		00EB7DEA1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-04-23 at 09.28.26.png"; sourceTree = "<group>"; };
+		00EB7DEB1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-04-23 at 09.28.33.png"; sourceTree = "<group>"; };
 		0E4D396929DE7EC3592BA6E2 /* VisualConstraints.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VisualConstraints.podspec; path = ../VisualConstraints.podspec; sourceTree = "<group>"; };
 		12242C0D34C3125B7C1C5218 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		25AE5AA8FD6BAB64DF041637 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +146,8 @@
 		6003F593195388D20070C39A /* VisualConstraints */ = {
 			isa = PBXGroup;
 			children = (
+				00EB7DEA1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.26.png */,
+				00EB7DEB1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.33.png */,
 				6003F59C195388D20070C39A /* VCAppDelegate.h */,
 				6003F59D195388D20070C39A /* VCAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
@@ -151,7 +158,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				00B689691ADBCBEB006BFAA4 /* Playground.swift */,
 				00B689681ADBCBEA006BFAA4 /* VisualConstraints-Bridging-Header.h */,
-				00DA671D1AE54CC800220DB1 /* test.xib */,
+				00EB7DE71AE8D3AC005239C4 /* MyTableViewCell.h */,
+				00EB7DE81AE8D3AC005239C4 /* MyTableViewCell.m */,
 			);
 			path = VisualConstraints;
 			sourceTree = "<group>";
@@ -291,10 +299,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00DA671E1AE54CC800220DB1 /* test.xib in Resources */,
+				00EB7DEC1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.26.png in Resources */,
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
+				00EB7DED1AE8D6B9005239C4 /* Screen Shot 2015-04-23 at 09.28.33.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +390,7 @@
 				6003F59E195388D20070C39A /* VCAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* VCViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				00EB7DE91AE8D3AC005239C4 /* MyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

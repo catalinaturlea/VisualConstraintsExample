@@ -61,10 +61,6 @@
     [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topPadding-[childView(==height)]" options:0 metrics:@{ @"topPadding": @(topPadding), @"height": @(height) } views:@{ @"childView": self }]];
 }
 
-//- (void)addConstraintsToVerticallyAlignWithBottomOffset:(CGFloat)bottomOffset andHeight:(CGFloat)height {
-//    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[childView(==height)]-bottomOffset-|" options:0 metrics:@{ @"bottomOffset": [NSNumber numberWithFloat:bottomOffset], @"height": [NSNumber numberWithFloat:height] } views:@{ @"childView": self }]];
-//}
-
 - (NSLayoutConstraint *)addConstraintsForHeight:(CGFloat)height {
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==height)]" options:0 metrics:@{ @"height": [NSNumber numberWithFloat:height] } views:@{ @"view": self }];
     [self.superview addConstraints:constraints];
