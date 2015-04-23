@@ -30,18 +30,18 @@
 - (void)addConstraintsToAlignRightWithOffset:(CGFloat)offset;
 - (void)addConstraintsToAlignBottomWithOffset:(CGFloat)offset;
 - (NSLayoutConstraint *)addConstraintsToAlignHorizontalCenterToView:(UIView *)otherView;
-- (NSLayoutConstraint *)addConstraintsToAlignVerticalCenterToView:(UIView *)otherView forOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)addConstraintsToAlignVerticalCenterToView:(UIView *)otherView offset:(CGFloat)offset;
 
 - (NSLayoutConstraint *)addConstraintsForHeight:(CGFloat)height;
 - (NSLayoutConstraint *)addConstraintsForWidth:(CGFloat)width;
 - (void)addConstraintsForBottomSpace:(CGFloat)space;
 - (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset;
 
-// Other view
+// Other views connections
 - (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset toView:(UIView *)otherView;
 - (void)addConstraintsForHorizontalOffset:(CGFloat)horizontalOffset toView:(UIView *)otherView;
 
-- (void)addConstraintsForEqualsHeightsToView:(UIView *)otherView;
-- (void)addConstraintsForEqualsWidthsToView:(UIView *)otherView;
+- (void)addConstraintsForEqualHeightToView:(UIView *)otherView;
+- (void)addConstraintsForEqualWidthToView:(UIView *)otherView;
 
 @end

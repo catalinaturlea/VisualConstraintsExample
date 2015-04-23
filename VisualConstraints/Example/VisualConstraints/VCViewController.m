@@ -7,43 +7,69 @@
 //
 
 #import "VCViewController.h"
+#import <VisualConstraints/VisualConstraints.h>
 
 @interface VCViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *inputField;
 
 @end
 
 @implementation VCViewController
 
+- (void)addViewsToScrollViewHorizontally {
+    // Example - ScrollView with vertical views that fill the scrollView horizontally
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    [self.view addSubview:scrollView];
+    [scrollView addConstraintsToFillHorizontal];
+    [scrollView addConstraintsToFillVertical];
+    [scrollView addConstraintsForEqualWidthToView:self.view];
+    [scrollView setBackgroundColor:[UIColor redColor]];
+    
+    NSMutableArray *views = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < 10; i++) {
+        UIView *view = [[UIView alloc] init];
+        [view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:40*i/255.0f blue:20*i/255.0f alpha:1]];
+        [scrollView addSubview:view];
+        [views addObject:view];
+        [view addConstraintsForWidth:(i + 1) * 50];
+    }
+    
+    [scrollView addConstraintsToAlignHorizontalAllViews:views];
+}
+
+- (void)addViewsToScrollViewVertically {
+    // Example - ScrollView with vertical views that fill the scrollView horizontally
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    [self.view addSubview:scrollView];
+    [scrollView addConstraintsToFillHorizontal];
+    [scrollView addConstraintsToFillVertical];
+    [scrollView addConstraintsForEqualWidthToView:self.view];
+    [scrollView setBackgroundColor:[UIColor redColor]];
+    
+    NSMutableArray *views = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < 10; i++) {
+        UIView *view = [[UIView alloc] init];
+        [view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:30*i/255.0f alpha:1]];
+        [scrollView addSubview:view];
+        [views addObject:view];
+        [view addConstraintsForHeight:(i + 1) * 50];
+    }
+    
+    [scrollView addConstraintsToAlignVerticalAllViews:views];
+    
+    [self.view layoutIfNeeded];
+}
+
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
     
-    UIView *line = [[UIView alloc] init];
-    line.backgroundColor = [UIColor redColor];
-    [line setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.inputField addSubview:line];
+    [self addViewsToScrollViewVertically];
     
-    // Vertical constraints
-    [self.inputField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line-(-1)-|" options:0 metrics:nil views:@{ @"line": line}]];
     
-    // Horizontal constraints
-    [self.inputField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(-8)-[line]-8-|" options:0 metrics:nil views:@{ @"line": line}]];
+    [self addViewsToScrollViewHorizontally];
     
-
-	UIButton *b1 = [[UIButton alloc] init];
-	UIButton *b2 = [[UIButton alloc] init];
-	UIButton *b3 = [[UIButton alloc] init];
-
-	for (UIButton *b in @[b1, b2, b3]) {
-		[b setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[self.view addSubview:b];
-		[b.layer setBorderWidth:1];
-		[b setBackgroundColor:[UIColor redColor]];
-		[b setTitle:@"test" forState:UIControlStateNormal];
-	}
-	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:b1 attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[b1]-0-[b2(==b1)]-0-[b3(==b1)]-0-|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{ @"b1":b1, @"b2":b2, @"b3":b3 }]];
+    [self.view layoutIfNeeded];
 }
 
 @end

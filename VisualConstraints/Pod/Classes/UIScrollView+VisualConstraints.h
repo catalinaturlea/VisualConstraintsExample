@@ -10,4 +10,10 @@
 
 @interface UIScrollView (VisualConstraints)
 
+// Align all subviews in array one after the other in a vertical manner
+- (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views;
+
+// Align all subviews in array one after the other in a horizontal manner
+- (void)addConstraintsToAlignHorizontalAllViews:(NSArray *)views;
+
 @end

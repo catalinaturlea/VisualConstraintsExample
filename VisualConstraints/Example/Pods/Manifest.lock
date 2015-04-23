@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 9d5fe43b29ae3a0ed8fc829477971b281038f748
-  VisualConstraints: ea644ff03bf90e93a96ff6185797c1b14c87bbbf
+  VisualConstraints: 04a4ceabb70ee0bf65d1c126b4f374eebdd3791b
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.35.0

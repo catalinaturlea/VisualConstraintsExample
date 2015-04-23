@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6E09730EF5B2ECCE5DD3D82"
+               BlueprintIdentifier = "936C3F71478A9F3B791F58B4"
                BuildableName = "libPods-VisualConstraints.a"
                BlueprintName = "Pods-VisualConstraints"
                ReferencedContainer = "container:Pods.xcodeproj">
