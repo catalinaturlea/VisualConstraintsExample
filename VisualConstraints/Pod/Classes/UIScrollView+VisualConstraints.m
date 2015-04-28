@@ -13,7 +13,7 @@
 
 - (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views {
     
-    [[views firstObject] addConstraintsForVerticalOffset:0]; 
+    [[views firstObject] addConstraintsForVerticalOffset:0];
     
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
         
@@ -21,7 +21,7 @@
         if (idx == [views count] - 1) {
             return;
         }
-        [view addConstraintsForVerticalOffset:0 toView:[views objectAtIndex:(idx + 1)]];
+        [view addConstraintsForVerticalOffset:0 toView:[views objectAtIndex:(idx+1)]];
         
     }];
     
@@ -43,6 +43,14 @@
     }];
     
     [[views lastObject] addConstraintsToAlignRightWithOffset:0];
+}
+
+- (void)addConstraintsToFillHorizontalWithView:(UIView *)view {
+    [self addConstraintsToAlignHorizontalAllViews:@[view]];
+}
+
+- (void)addConstraintsToFillVerticalWithView:(UIView *)view {
+    [self addConstraintsToAlignVerticalAllViews:@[view]];
 }
 
 @end

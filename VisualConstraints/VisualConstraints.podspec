@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = "VisualConstraints"
   s.version          = "0.1.0"
-  s.summary          = "A short description of VisualConstraints."
+  s.summary          = "Small library for making it easy to programmatically add constraints"
   s.description      = <<-DESC
                        An optional longer description of VisualConstraints
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/catalinaturlea/visualConstraints"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Catalina Turlea" => "catalina.turlea@1und1.de" }
+  s.author           = { "Catalina Turlea" => "catalina.turlea@gmail.com" }
   s.source           = { :git => "https://github.com/catalinaturlea/visualConstraints.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
