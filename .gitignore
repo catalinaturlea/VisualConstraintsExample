@@ -12,3 +12,5 @@
 >>>>>>> origin/master
 
 *.xcuserstate
+
+*.xcconfig
