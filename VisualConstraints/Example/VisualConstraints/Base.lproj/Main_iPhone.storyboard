@@ -57,6 +57,7 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="ScrollViewSegue" id="U62-P0-jyG"/>
                         <segue destination="KOW-bY-zJT" kind="push" identifier="CommonSegue" id="Rvf-8a-hOo"/>
+                        <segue destination="4m3-Jb-YhY" kind="push" identifier="SwiftSegue" id="Rbs-HI-65x"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRq-Zs-SJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,6 +82,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7c-Uv-o2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-363" y="1338"/>
+        </scene>
+        <!--Swift Example-->
+        <scene sceneID="cdU-HT-Aje">
+            <objects>
+                <viewController id="4m3-Jb-YhY" customClass="SwiftExampleViewController" customModule="VisualConstraints" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QOm-oW-D8z"/>
+                        <viewControllerLayoutGuide type="bottom" id="aaQ-FF-FIF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IFA-1e-2C8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Swift Example" id="BTe-ry-Qzj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5p5-3L-VSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="2034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eKv-XU-mXE">

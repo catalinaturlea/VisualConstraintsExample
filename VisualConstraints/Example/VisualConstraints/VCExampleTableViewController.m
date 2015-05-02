@@ -21,8 +21,8 @@
 {
     [super viewDidLoad];
     
-    [self setExamplesArray:@[@"ScrollView", @"Common Controls"]];
-    [self setSeguesArray:@[@"ScrollViewSegue", @"CommonSegue"]];
+    [self setExamplesArray:@[@"ScrollView", @"Common Controls", @"Swift Example"]];
+    [self setSeguesArray:@[@"ScrollViewSegue", @"CommonSegue", @"SwiftSegue"]];
     [self.tableView reloadData];
 }
 

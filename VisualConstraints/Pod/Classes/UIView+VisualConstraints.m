@@ -11,6 +11,8 @@
 
 static NSString *left = @"left";
 static NSString *right = @"right";
+static NSString *top = @"top";
+static NSString *bottom = @"bottom";
 
 @implementation UIView (VisualConstraints)
 
@@ -234,6 +236,30 @@ static NSString *right = @"right";
     return horizontalConstraints;
 }
 
+- (NSDictionary *)verticalConstraints
+{
+    __block NSMutableDictionary *verticalConstraints = [NSMutableDictionary dictionary];
+    [verticalConstraints setObject:[NSMutableArray new] forKey:top];
+    [verticalConstraints setObject:[NSMutableArray new] forKey:bottom];
+    [self.superview.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        if ([constraint.firstItem isEqual:self] || [constraint.secondItem isEqual:self])
+        {
+            if ([self verticalTopAttribute:constraint.firstAttribute] || [self verticalTopAttribute:constraint.secondAttribute])
+            {
+                [[verticalConstraints objectForKey:top] addObject:constraint];
+            }
+            if ([self verticalBottomAttribute:constraint.firstAttribute] || [self verticalBottomAttribute:constraint.secondAttribute])
+            {
+                [[verticalConstraints objectForKey:bottom] addObject:constraint];
+            }
+            DDLogDebug(@"Constraint %@", constraint);
+        }
+    }];
+    
+    DDLogDebug(@"Vertical Constraints %@", verticalConstraints);
+    return verticalConstraints;
+}
+
 - (void)debugConstraints
 {
     [self validateConstraints];
@@ -256,8 +282,8 @@ static NSString *right = @"right";
     {
         if ([[horizontalConstraints objectForKey:left] count] + [[horizontalConstraints objectForKey:right] count] == 0)
         {
-            DDLogError(@"View with intrinsic content size has just no left/right horizontal constraints");
-            return YES;
+            DDLogError(@"Error: View with intrinsic content size has no left/right horizontal constraints");
+            return NO;
         }
         
         if ([[horizontalConstraints objectForKey:left] count] == 1 && [[horizontalConstraints objectForKey:right] count] == 1)
@@ -274,13 +300,13 @@ static NSString *right = @"right";
         
         if ([[horizontalConstraints objectForKey:left] count] > 1)
         {
-            DDLogWarn(@"View with intrinsic content size has more then one left horizontal constraint - this might cause layout errors");
+            DDLogWarn(@"View with intrinsic content size has more then one left horizontal constraints - this might cause layout errors");
             return NO;
         }
         
         if ([[horizontalConstraints objectForKey:right] count] > 1)
         {
-            DDLogWarn(@"View with intrinsic content size has more then one right horizontal constraint - this might cause layout errors");
+            DDLogWarn(@"View with intrinsic content size has more then one right horizontal constraints - this might cause layout errors");
             return NO;
         }
     }
@@ -290,6 +316,41 @@ static NSString *right = @"right";
 
 - (BOOL)validateVerticalConstraints
 {
+    NSDictionary *verticalConstraints = [self verticalConstraints];
+    // If it is a view with instrinsic size - like UILabel, UIButton or UIImageView just a leading/trailing or left/right constraint is necessary for the layout to be valid
+    if (self.intrinsicContentSize.width > 0 && self.intrinsicContentSize.height > 0)
+    {
+        if ([[verticalConstraints objectForKey:top] count] + [[verticalConstraints objectForKey:bottom] count] == 0)
+        {
+            DDLogError(@"Error: View with intrinsic content size has no top/bottom vertical constraints");
+            return NO;
+        }
+        
+        if ([[verticalConstraints objectForKey:top] count] == 1 && [[verticalConstraints objectForKey:bottom] count] == 1)
+        {
+            DDLogDebug(@"View with intrinsic content size has just both top and bottom vertical constraints - the content size will be calculated based on the constraints not the content inside the view");
+            return YES;
+        }
+        
+        if (([[verticalConstraints objectForKey:top] count] + [[verticalConstraints objectForKey:bottom] count]) == 1)
+        {
+            DDLogDebug(@"View with intrinsic content size has just one top/bottom vertical constraint");
+            return YES;
+        }
+        
+        if ([[verticalConstraints objectForKey:top] count] > 1)
+        {
+            DDLogWarn(@"View with intrinsic content size has more then one top vertical constraints - this might cause layout errors");
+            return NO;
+        }
+        
+        if ([[verticalConstraints objectForKey:bottom] count] > 1)
+        {
+            DDLogWarn(@"View with intrinsic content size has more then one bottom vertical constraints - this might cause layout errors");
+            return NO;
+        }
+    }
+    
     return YES;
 }
 
@@ -301,6 +362,16 @@ static NSString *right = @"right";
 - (BOOL)horizontalLeftAttribute:(NSLayoutAttribute)attribute
 {
     return attribute == NSLayoutAttributeLeading || attribute == NSLayoutAttributeLeadingMargin || attribute == NSLayoutAttributeLeft || attribute == NSLayoutAttributeLeftMargin;
+}
+
+- (BOOL)verticalTopAttribute:(NSLayoutAttribute)attribute
+{
+    return attribute == NSLayoutAttributeTop || attribute == NSLayoutAttributeTopMargin;
+}
+
+- (BOOL)verticalBottomAttribute:(NSLayoutAttribute)attribute
+{
+    return attribute == NSLayoutAttributeBottom || attribute == NSLayoutAttributeBottomMargin;
 }
 
 @end

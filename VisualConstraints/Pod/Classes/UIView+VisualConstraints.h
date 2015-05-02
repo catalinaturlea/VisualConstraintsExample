@@ -229,6 +229,8 @@
 - (void)debugConstraints;
 
 - (BOOL)validateConstraints;
+- (BOOL)validateHorizontalConstraints;
+- (BOOL)validateVerticalConstraints;
 
 - (NSDictionary *)horizontalConstraints;
 

@@ -24,8 +24,8 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [self setContainerView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)]];
     
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDASLLogger sharedInstance] withLevel:DDLogLevelWarning];
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelWarning];
 }
 
 - (void)tearDown
@@ -42,7 +42,8 @@
     
     [label addConstraintsToAlignLeftWithOffset:20];
     
-    XCTAssert([label validateConstraints], @"Validate Constraints");
+    XCTAssert([label validateHorizontalConstraints], @"Validate Constraints");
+    XCTAssertFalse([label validateVerticalConstraints], @"Validate Constraints");
     
     __block NSInteger allHorizontalConstraints = 0;
     
@@ -61,7 +62,8 @@
     
     [label addConstraintsToFillHorizontalWithLeftPadding:20 rightPadding:20];
     
-    XCTAssert([label validateConstraints], @"Validate Constraints");
+    XCTAssert([label validateHorizontalConstraints], @"Validate Constraints");
+    XCTAssertFalse([label validateVerticalConstraints], @"Validate Constraints");
     
     __block NSInteger allHorizontalConstraints = 0;
     
@@ -72,7 +74,7 @@
     XCTAssertEqual(allHorizontalConstraints, 2, @"Horizontal constaints number");
 }
 
-- (void)testSimpleLabelDuplicateConstraints
+- (void)testSimpleLabelConflictingConstraints
 {
     UILabel *label = [[UILabel alloc] init];
     [self.containerView addSubview:label];
@@ -81,7 +83,8 @@
     [label addConstraintsToFillHorizontalWithLeftPadding:20 rightPadding:20];
     [label addConstraintsToFillHorizontalWithLeftPadding:30 rightPadding:30];
     
-    XCTAssertFalse([label validateConstraints], @"Validate Constraints");
+    XCTAssertFalse([label validateHorizontalConstraints], @"Validate Constraints");
+    XCTAssertFalse([label validateVerticalConstraints], @"Validate Constraints");
     
     __block NSInteger allHorizontalConstraints = 0;
     
