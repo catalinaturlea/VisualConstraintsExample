@@ -6,4 +6,3 @@
 //  Copyright (c) 2014 Catalina Turlea. All rights reserved.
 //
 
-${TEST_EXAMPLE}

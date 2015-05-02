@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>VisualConstraints-Example.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>

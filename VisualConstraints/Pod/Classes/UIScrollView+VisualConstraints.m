@@ -33,7 +33,7 @@
 
 - (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views withOffset:(CGFloat)offset
 {
-    [[views firstObject] addConstraintsForVerticalOffset:offset];
+    [[views firstObject] addConstraintsToAlignTopWithOffset:offset];
     
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
         [view addConstraintsToAlignLeftWithOffset:0];
@@ -55,7 +55,7 @@
     [[views firstObject] addConstraintsToAlignLeftWithOffset:offset];
     
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-        [view addConstraintsForVerticalOffset:0];
+        [view addConstraintsToAlignTopWithOffset:0];
         [view addConstraintsForEqualHeightToView:view.superview];
         if (idx == [views count] - 1)
         {

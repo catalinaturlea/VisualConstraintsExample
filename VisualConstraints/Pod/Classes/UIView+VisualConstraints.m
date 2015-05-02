@@ -7,8 +7,15 @@
 //
 
 #import "UIView+VisualConstraints.h"
+#import "VisualConstraints.h"
+
+static NSString *left = @"left";
+static NSString *right = @"right";
 
 @implementation UIView (VisualConstraints)
+
+#pragma mark -
+#pragma mark - Fill superview
 
 - (void)addConstraintsToFillHorizontal
 {
@@ -18,44 +25,6 @@
 - (void)addConstraintsToFillVertical
 {
     [self addConstraintsToFillVerticalWithTopPadding:0 bottomPadding:0];
-}
-
-- (NSLayoutConstraint *)addConstraintsToCenterHorizontal
-{
-    return [self addConstraintsToCenterHorizontalWithOffset:0];
-}
-
-- (NSLayoutConstraint *)addConstraintsToCenterHorizontalWithOffset:(CGFloat)offset
-{
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterX multiplier:1.f constant:offset];
-    [self.superview addConstraint:centerXConstraint];
-    return centerXConstraint;
-}
-
-- (NSLayoutConstraint *)addConstraintsToCenterVertical
-{
-    return [self addConstraintsToCenterVerticalWithOffset:0];
-}
-
-- (NSLayoutConstraint *)addConstraintsToCenterVerticalWithOffset:(CGFloat)offset
-{
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterX multiplier:1.f constant:offset];
-    [self.superview addConstraint:centerYConstraint];
-    return centerYConstraint;
-}
-
-- (void)addConstraintsToCenter
-{
-    [self addConstraintsToCenterVertical];
-    [self addConstraintsToCenterHorizontal];
-}
-
-- (void)addConstraintsToCenterHorizontalWithWidth:(CGFloat)width
-{
-    [self addConstraintsToCenterHorizontal];
-    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]" options:0 metrics:@{ @"width": [NSNumber numberWithFloat:width] } views:@{ @"view": self }]];
 }
 
 - (void)addConstraintsToFillHorizontalWithLeftPadding:(CGFloat)leftPadding rightPadding:(CGFloat)rightPadding
@@ -70,39 +39,60 @@
     [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topPadding-[childView]-bottomPadding-|" options:0 metrics:@{ @"bottomPadding":@(bottomPadding), @"topPadding": @(topPadding) } views:@{ @"childView": self }]];
 }
 
-- (void)addConstraintsToAlignTopWithPadding:(CGFloat)topPadding height:(CGFloat)height
+#pragma mark -
+#pragma mark - Center in superview
+
+- (void)addConstraintsToCenter
 {
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topPadding-[childView(==height)]" options:0 metrics:@{ @"topPadding": @(topPadding), @"height": @(height) } views:@{ @"childView": self }]];
+    [self addConstraintsToCenterVertical];
+    [self addConstraintsToCenterHorizontal];
 }
 
-- (NSLayoutConstraint *)addConstraintsForHeight:(CGFloat)height
+- (void)addConstraintsToCenterHorizontalWithWidth:(CGFloat)width
 {
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==height)]" options:0 metrics:@{ @"height": [NSNumber numberWithFloat:height] } views:@{ @"view": self }];
-    [self.superview addConstraints:constraints];
-    return [constraints firstObject];
+    [self addConstraintsToCenterHorizontal];
+    [self addConstraintsForWidth:width];
 }
 
-- (void)addConstraintsForBottomSpace:(CGFloat)space
+- (void)addConstraintsToCenterVerticalWithHeight:(CGFloat)height
 {
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-space-|" options:0 metrics:@{ @"space": [NSNumber numberWithFloat:space] } views:@{ @"view": self }]];
+    [self addConstraintsToCenterVertical];
+    [self addConstraintsForHeight:height];
 }
 
-- (NSLayoutConstraint *)addConstraintsForWidth:(CGFloat)width
+- (NSLayoutConstraint *)addConstraintsToCenterHorizontal
 {
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]" options:0 metrics:@{ @"width": [NSNumber numberWithFloat:width] } views:@{ @"view": self }];
-    
-    [self.superview addConstraints:constraints];
-    return [constraints firstObject];
+    return [self addConstraintsToCenterHorizontalWithOffset:0];
 }
 
-- (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset
+- (NSLayoutConstraint *)addConstraintsToCenterVertical
+{
+    return [self addConstraintsToCenterVerticalWithOffset:0];
+}
+
+- (NSLayoutConstraint *)addConstraintsToCenterHorizontalWithOffset:(CGFloat)offset
 {
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-verticalOffset-[view]" options:0 metrics:@{ @"verticalOffset": [NSNumber numberWithFloat:verticalOffset] } views:@{ @"view": self }]];
+    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterX multiplier:1.f constant:offset];
+    [self.superview addConstraint:centerXConstraint];
+    return centerXConstraint;
+}
+
+- (NSLayoutConstraint *)addConstraintsToCenterVerticalWithOffset:(CGFloat)offset
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterY multiplier:1.f constant:offset];
+    [self.superview addConstraint:centerYConstraint];
+    return centerYConstraint;
+}
+
+#pragma mark -
+#pragma mark - Align in superview
+
+- (void)addConstraintsToAlignTopWithOffset:(CGFloat)offset
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-offset-[childView]" options:0 metrics:@{ @"offset": @(offset) } views:@{ @"childView": self }]];
 }
 
 - (void)addConstraintsToAlignLeftWithOffset:(CGFloat)offset
@@ -122,6 +112,53 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-offset-|" options:0 metrics:@{ @"offset": [NSNumber numberWithFloat:offset] } views:@{ @"view": self }]];
 }
+
+- (void)addConstraintsToAlignTopWithOffset:(CGFloat)offset height:(CGFloat)height
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-offset-[childView(==height)]" options:0 metrics:@{ @"offset": @(offset), @"height": @(height) } views:@{ @"childView": self }]];
+}
+
+- (void)addConstraintsToAlignBottomWithOffset:(CGFloat)offset height:(CGFloat)height
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[childView(==height)]-offset-|" options:0 metrics:@{ @"offset": @(offset), @"height": @(height) } views:@{ @"childView": self }]];
+}
+
+- (void)addConstraintsToAlignLeftWithOffset:(CGFloat)offset width:(CGFloat)width
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-offset-[childView(==width)]" options:0 metrics:@{ @"offset": @(offset), @"width": @(width) } views:@{ @"childView": self }]];
+}
+
+- (void)addConstraintsToAlignRightWithOffset:(CGFloat)offset width:(CGFloat)width
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[childView(==width)]-offset-|" options:0 metrics:@{ @"offset": @(offset), @"width": @(width) } views:@{ @"childView": self }]];
+}
+
+#pragma mark -
+#pragma mark - Width/ Height
+
+- (NSLayoutConstraint *)addConstraintsForHeight:(CGFloat)height
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==height)]" options:0 metrics:@{ @"height": [NSNumber numberWithFloat:height] } views:@{ @"view": self }];
+    [self.superview addConstraints:constraints];
+    return [constraints firstObject];
+}
+
+- (NSLayoutConstraint *)addConstraintsForWidth:(CGFloat)width
+{
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]" options:0 metrics:@{ @"width": [NSNumber numberWithFloat:width] } views:@{ @"view": self }];
+    
+    [self.superview addConstraints:constraints];
+    return [constraints firstObject];
+}
+
+#pragma mark -
+#pragma mark - Align with other views
 
 - (void)addConstraintsForVerticalOffset:(CGFloat)verticalOffset toView:(UIView *)otherView
 {
@@ -168,6 +205,102 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:otherView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
     [self.superview addConstraint:constraint];
+}
+
+#pragma mark -
+#pragma mark -
+
+- (NSDictionary *)horizontalConstraints
+{
+    __block NSMutableDictionary *horizontalConstraints = [NSMutableDictionary dictionary];
+    [horizontalConstraints setObject:[NSMutableArray new] forKey:left];
+    [horizontalConstraints setObject:[NSMutableArray new] forKey:right];
+    [self.superview.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        if ([constraint.firstItem isEqual:self] || [constraint.secondItem isEqual:self])
+        {
+            if ([self horizontalLeftAttribute:constraint.firstAttribute] || [self horizontalLeftAttribute:constraint.secondAttribute])
+            {
+                [[horizontalConstraints objectForKey:left] addObject:constraint];
+            }
+            if ([self horizontalRightAttribute:constraint.firstAttribute] || [self horizontalRightAttribute:constraint.secondAttribute])
+            {
+                [[horizontalConstraints objectForKey:right] addObject:constraint];
+            }
+            DDLogDebug(@"Constraint %@", constraint);
+        }
+    }];
+    
+    DDLogDebug(@"Horizontal Constraints %@", horizontalConstraints);
+    return horizontalConstraints;
+}
+
+- (void)debugConstraints
+{
+    [self validateConstraints];
+    
+    [self.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        DDLogDebug(@"Constraint %@ ", constraint);
+    }];
+}
+
+- (BOOL)validateConstraints
+{
+    return [self validateHorizontalConstraints] && [self validateVerticalConstraints];
+}
+
+- (BOOL)validateHorizontalConstraints
+{
+    NSDictionary *horizontalConstraints = [self horizontalConstraints];
+    // If it is a view with instrinsic size - like UILabel, UIButton or UIImageView just a leading/trailing or left/right constraint is necessary for the layout to be valid
+    if (self.intrinsicContentSize.width > 0 && self.intrinsicContentSize.height > 0)
+    {
+        if ([[horizontalConstraints objectForKey:left] count] + [[horizontalConstraints objectForKey:right] count] == 0)
+        {
+            DDLogError(@"View with intrinsic content size has just no left/right horizontal constraints");
+            return YES;
+        }
+        
+        if ([[horizontalConstraints objectForKey:left] count] == 1 && [[horizontalConstraints objectForKey:right] count] == 1)
+        {
+            DDLogDebug(@"View with intrinsic content size has just both left and right horizontal constraints - the content size will be calculated based on the constraints not the content inside the view");
+            return YES;
+        }
+        
+        if (([[horizontalConstraints objectForKey:left] count] + [[horizontalConstraints objectForKey:right] count]) == 1)
+        {
+            DDLogDebug(@"View with intrinsic content size has just one left/right horizontal constraint");
+            return YES;
+        }
+        
+        if ([[horizontalConstraints objectForKey:left] count] > 1)
+        {
+            DDLogWarn(@"View with intrinsic content size has more then one left horizontal constraint - this might cause layout errors");
+            return NO;
+        }
+        
+        if ([[horizontalConstraints objectForKey:right] count] > 1)
+        {
+            DDLogWarn(@"View with intrinsic content size has more then one right horizontal constraint - this might cause layout errors");
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (BOOL)validateVerticalConstraints
+{
+    return YES;
+}
+
+- (BOOL)horizontalRightAttribute:(NSLayoutAttribute)attribute
+{
+    return attribute == NSLayoutAttributeRight || attribute == NSLayoutAttributeRightMargin || attribute == NSLayoutAttributeTrailing || attribute == NSLayoutAttributeTrailingMargin;
+}
+
+- (BOOL)horizontalLeftAttribute:(NSLayoutAttribute)attribute
+{
+    return attribute == NSLayoutAttributeLeading || attribute == NSLayoutAttributeLeadingMargin || attribute == NSLayoutAttributeLeft || attribute == NSLayoutAttributeLeftMargin;
 }
 
 @end

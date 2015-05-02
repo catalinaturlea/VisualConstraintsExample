@@ -15,19 +15,20 @@
 
 @implementation VCScrollViewExampleViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self addViewsToScrollViewVertically];
     
-//    Use this method to arrage the views horizontally
-//    [self addViewsToScrollViewHorizontally];
+    //    Use this method to arrage the views horizontally
+    //    [self addViewsToScrollViewHorizontally];
     
     [self.view layoutIfNeeded];
 }
 
-- (void)addViewsToScrollViewHorizontally {
-    
+- (void)addViewsToScrollViewHorizontally
+{
     // Example - ScrollView with vertical views that fill the scrollView horizontally
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
@@ -37,9 +38,10 @@
     
     NSMutableArray *views = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         UIView *view = [[UIView alloc] init];
-        [view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:40*i/255.0f blue:20*i/255.0f alpha:1]];
+        [view setBackgroundColor:[UIColor colorWithRed:255 / 255.0f green:40 * i / 255.0f blue:20 * i / 255.0f alpha:1]];
         [scrollView addSubview:view];
         [views addObject:view];
         [view addConstraintsForWidth:(i + 1) * 50];
@@ -48,8 +50,8 @@
     [scrollView addConstraintsToAlignHorizontalAllViews:views];
 }
 
-- (void)addViewsToScrollViewVertically {
-    
+- (void)addViewsToScrollViewVertically
+{
     // Example - ScrollView with vertical views that fill the scrollView horizontally
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
@@ -59,9 +61,10 @@
     
     NSMutableArray *views = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         UIView *view = [[UIView alloc] init];
-        [view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:30*i/255.0f alpha:1]];
+        [view setBackgroundColor:[UIColor colorWithRed:255 / 255.0f green:255 / 255.0f blue:30 * i / 255.0f alpha:1]];
         [scrollView addSubview:view];
         [views addObject:view];
         [view addConstraintsForHeight:(i + 1) * 50];
