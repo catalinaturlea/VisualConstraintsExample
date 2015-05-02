@@ -7,50 +7,64 @@
 //
 
 #import "UIScrollView+VisualConstraints.h"
-#import "UIView+VisualConstraints.h"
+#import "VisualConstraints.h"
 
 @implementation UIScrollView (VisualConstraints)
 
-- (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views {
-    
-    [[views firstObject] addConstraintsForVerticalOffset:0];
-    
-    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-        
-        [view addConstraintsForEqualWidthToView:view.superview];
-        if (idx == [views count] - 1) {
-            return;
-        }
-        [view addConstraintsForVerticalOffset:0 toView:[views objectAtIndex:(idx+1)]];
-        
-    }];
-    
-    [[views lastObject] addConstraintsToAlignBottomWithOffset:0];
-}
-
-- (void)addConstraintsToAlignHorizontalAllViews:(NSArray *)views {
-    
-    [[views firstObject] addConstraintsToAlignLeftWithOffset:0];
-    
-    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-        
-        [view addConstraintsForEqualHeightToView:view.superview];
-        if (idx == [views count] - 1) {
-            return;
-        }
-        [view addConstraintsForHorizontalOffset:0 toView:[views objectAtIndex:(idx + 1)]];
-        
-    }];
-    
-    [[views lastObject] addConstraintsToAlignRightWithOffset:0];
-}
-
-- (void)addConstraintsToFillHorizontalWithView:(UIView *)view {
+- (void)addConstraintsToFillHorizontalWithView:(UIView *)view
+{
     [self addConstraintsToAlignHorizontalAllViews:@[view]];
 }
 
-- (void)addConstraintsToFillVerticalWithView:(UIView *)view {
+- (void)addConstraintsToFillVerticalWithView:(UIView *)view
+{
     [self addConstraintsToAlignVerticalAllViews:@[view]];
+}
+
+- (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views
+{
+    [self addConstraintsToAlignVerticalAllViews:views withOffset:0];
+}
+
+- (void)addConstraintsToAlignHorizontalAllViews:(NSArray *)views
+{
+    [self addConstraintsToAlignHorizontalAllViews:views withOffset:0];
+}
+
+- (void)addConstraintsToAlignVerticalAllViews:(NSArray *)views withOffset:(CGFloat)offset
+{
+    [[views firstObject] addConstraintsForVerticalOffset:offset];
+    
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+        [view addConstraintsToAlignLeftWithOffset:0];
+        [view addConstraintsForEqualWidthToView:view.superview];
+        if (idx == [views count] - 1)
+        {
+            return;
+        }
+        [view addConstraintsForVerticalOffset:offset toView:[views objectAtIndex:(idx + 1)]];
+    }];
+    
+    [[views lastObject] addConstraintsToAlignBottomWithOffset:offset];
+    
+    DDLogDebug(@"Added constraints to vertical align views");
+}
+
+- (void)addConstraintsToAlignHorizontalAllViews:(NSArray *)views withOffset:(CGFloat)offset
+{
+    [[views firstObject] addConstraintsToAlignLeftWithOffset:offset];
+    
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+        [view addConstraintsForVerticalOffset:0];
+        [view addConstraintsForEqualHeightToView:view.superview];
+        if (idx == [views count] - 1)
+        {
+            return;
+        }
+        [view addConstraintsForHorizontalOffset:offset toView:[views objectAtIndex:(idx + 1)]];
+    }];
+    
+    [[views lastObject] addConstraintsToAlignRightWithOffset:offset];
 }
 
 @end

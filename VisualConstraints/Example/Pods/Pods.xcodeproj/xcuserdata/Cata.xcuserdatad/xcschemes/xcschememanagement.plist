@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Tests-CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Tests-FBSnapshotTestCase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>Pods-Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-VisualConstraints-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>430911CB25AC37BF0459C170</key>
+		<key>201E1BDD13F082038A34BB94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E31D94F43646BFCCC21965C</key>
+		<key>4F15E16995BBC7CC0FB6512F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A277344378010E2389AC143</key>
+		<key>663927E1363F11D57E336376</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC3B47AF083AC395FA633706</key>
+		<key>71CF168B10E34396FF833E31</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D89EBDBF896C25169A7BA36F</key>
+		<key>C3A6BF5BDC7ABB0800E55E44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBC03AC31ADD73F935D2DC12</key>
+		<key>C6B05C04A4C04B1D9EEA14CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFA0C26845605B4970E3A66F</key>
+		<key>CF6A4007939A5D225692BE97</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D05BC49597EFE690A1C0E3EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6D90B58789FC9816079EF5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

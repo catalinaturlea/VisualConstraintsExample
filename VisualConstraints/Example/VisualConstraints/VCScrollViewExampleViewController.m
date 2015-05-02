@@ -33,7 +33,6 @@
     [self.view addSubview:scrollView];
     [scrollView addConstraintsToFillHorizontal];
     [scrollView addConstraintsToFillVertical];
-    [scrollView addConstraintsForEqualWidthToView:self.view];
     [scrollView setBackgroundColor:[UIColor redColor]];
     
     NSMutableArray *views = [[NSMutableArray alloc] init];
@@ -56,7 +55,6 @@
     [self.view addSubview:scrollView];
     [scrollView addConstraintsToFillHorizontal];
     [scrollView addConstraintsToFillVertical];
-    [scrollView addConstraintsForEqualWidthToView:self.view];
     [scrollView setBackgroundColor:[UIColor redColor]];
     
     NSMutableArray *views = [[NSMutableArray alloc] init];
