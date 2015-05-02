@@ -6,53 +6,73 @@
 	<dict>
 		<key>Pods-Tests-FBSnapshotTestCase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Tests-VisualConstraints-VisualConstraints.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Tests-VisualConstraints.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Tests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-VisualConstraints-VisualConstraints-VisualConstraints.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-VisualConstraints-VisualConstraints.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-VisualConstraints.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4426E84047D77D3CD524A606</key>
+		<key>25FCB3E03775E9AC072B9DC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B82B1CD9B268AD4B042399B</key>
+		<key>3962B4F6DC585963666FA623</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9775AA6CE35A200CB3881564</key>
+		<key>5B99350ED07E531D266AC136</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B76CB04BE60560989B23227E</key>
+		<key>61273838E39FC4C5803EA546</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6E09730EF5B2ECCE5DD3D82</key>
+		<key>BA550704D2B15A5D4217ABAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBBDF2ADDF17483B0652217E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB308A0BCA928F9C63D3492B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

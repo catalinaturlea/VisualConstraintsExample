@@ -209,6 +209,9 @@ class SwiftViewController: UIViewController {
         aLabel.text = "Hola mundo";
         specsView.addSubview(aLabel);
         
+        let button = UIButton();
+        button.selected = !button.selected;
+        
         view.layoutIfNeeded()
     }
     
