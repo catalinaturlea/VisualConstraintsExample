@@ -1,21 +1,33 @@
 //
-//  VCViewController.m
+//  VCScrollViewExampleViewController.m
 //  VisualConstraints
 //
 //  Created by Catalina Turlea on 03/23/2015.
 //  Copyright (c) 2014 Catalina Turlea. All rights reserved.
 //
 
-#import "VCViewController.h"
+#import "VCScrollViewExampleViewController.h"
 #import <VisualConstraints/VisualConstraints.h>
 
-@interface VCViewController ()
+@interface VCScrollViewExampleViewController ()
 
 @end
 
-@implementation VCViewController
+@implementation VCScrollViewExampleViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self addViewsToScrollViewVertically];
+    
+//    Use this method to arrage the views horizontally
+//    [self addViewsToScrollViewHorizontally];
+    
+    [self.view layoutIfNeeded];
+}
 
 - (void)addViewsToScrollViewHorizontally {
+    
     // Example - ScrollView with vertical views that fill the scrollView horizontally
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
@@ -38,6 +50,7 @@
 }
 
 - (void)addViewsToScrollViewVertically {
+    
     // Example - ScrollView with vertical views that fill the scrollView horizontally
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
@@ -57,19 +70,6 @@
     }
     
     [scrollView addConstraintsToAlignVerticalAllViews:views];
-    
-    [self.view layoutIfNeeded];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self addViewsToScrollViewVertically];
-    
-    
-    [self addViewsToScrollViewHorizontally];
-    
-    [self.view layoutIfNeeded];
 }
 
 @end
