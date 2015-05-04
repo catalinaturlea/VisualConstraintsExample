@@ -210,7 +210,21 @@ static NSString *bottom = @"bottom";
 }
 
 #pragma mark -
-#pragma mark -
+#pragma mark - Validating constraints
+
+- (void)debugConstraints
+{
+    [self validateConstraints];
+    
+    [self.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        DDLogDebug(@"Constraint %@ ", constraint);
+    }];
+}
+
+- (BOOL)validateConstraints
+{
+    return [self validateHorizontalConstraints] && [self validateVerticalConstraints];
+}
 
 - (NSDictionary *)horizontalConstraints
 {
@@ -258,20 +272,6 @@ static NSString *bottom = @"bottom";
     
     DDLogDebug(@"Vertical Constraints %@", verticalConstraints);
     return verticalConstraints;
-}
-
-- (void)debugConstraints
-{
-    [self validateConstraints];
-    
-    [self.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
-        DDLogDebug(@"Constraint %@ ", constraint);
-    }];
-}
-
-- (BOOL)validateConstraints
-{
-    return [self validateHorizontalConstraints] && [self validateVerticalConstraints];
 }
 
 - (BOOL)validateHorizontalConstraints

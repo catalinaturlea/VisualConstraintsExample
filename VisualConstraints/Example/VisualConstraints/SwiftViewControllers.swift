@@ -38,5 +38,8 @@ class SwiftExampleViewController: UIViewController {
         label2.addConstraintsToFillHorizontalWithLeftPadding(10, rightPadding:10)
         label2.text = "Full width label"
         label.addConstraintsForVerticalOffset(20, toView:label2)
+        
+        let image = UIImageView()
+        image.highlighted = true;
     }
 }
