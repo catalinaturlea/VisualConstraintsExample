@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "Small library for making it easy to programmatically add constraints"
   s.description      = <<-DESC
-                       Library the provides methods to easily add and debug constraints programmatically. It includes methods for the most commonly used layouting of UI elements. The Pod also includes methods to ease the use of scrollviews and autolayout.
+                       The Pod provides methods to easily add and debug constraints programmatically. It includes methods for the most commonly used layouting of UI elements. The Pod also includes methods to ease the use of scrollviews and autolayout.
 
                        DESC
   s.homepage         = "https://github.com/catalinaturlea/visualConstraints"

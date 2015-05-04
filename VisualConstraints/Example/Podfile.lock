@@ -22,6 +22,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
   FBSnapshotTestCase: 9d5fe43b29ae3a0ed8fc829477971b281038f748
-  VisualConstraints: 5d8d2cddf5f06eea5126a32e95202af6d2e3b6d3
+  VisualConstraints: 1731c8584711a2fcdf05c0af30e97d4aa5e23026
 
 COCOAPODS: 0.36.1

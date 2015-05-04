@@ -2,7 +2,7 @@
   "name": "VisualConstraints",
   "version": "0.1.0",
   "summary": "Small library for making it easy to programmatically add constraints",
-  "description": "                       An optional longer description of VisualConstraints\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "description": "                       The Pod provides methods to easily add and debug constraints programmatically. It includes methods for the most commonly used layouting of UI elements. The Pod also includes methods to ease the use of scrollviews and autolayout.\n\n",
   "homepage": "https://github.com/catalinaturlea/visualConstraints",
   "license": "MIT",
   "authors": {

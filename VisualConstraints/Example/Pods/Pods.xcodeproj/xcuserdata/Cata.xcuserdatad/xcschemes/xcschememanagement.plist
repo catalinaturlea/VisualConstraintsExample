@@ -4,118 +4,95 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Tests 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
-		</dict>
 		<key>Pods-Tests-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Tests-FBSnapshotTestCase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-Tests-VisualConstraints-VisualConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-Tests-VisualConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-VisualConstraints-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-VisualConstraints-VisualConstraints-VisualConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Pods-VisualConstraints-VisualConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-VisualConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>201E1BDD13F082038A34BB94</key>
+		<key>12113FE20DF56B9F4B57DF70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F15E16995BBC7CC0FB6512F</key>
+		<key>24E3EFD0DF59DB54C07814C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>663927E1363F11D57E336376</key>
+		<key>3E596488F1E4208EBB98E447</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71CF168B10E34396FF833E31</key>
+		<key>7592478D7D11A5C65692F4FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3A6BF5BDC7ABB0800E55E44</key>
+		<key>76F5F7424A317BFA0B0E3B62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6B05C04A4C04B1D9EEA14CB</key>
+		<key>8381935D1CAF9DE4ED4769AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF6A4007939A5D225692BE97</key>
+		<key>C703FE7D7D5937830D63C52A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D05BC49597EFE690A1C0E3EE</key>
+		<key>DAAF6BE62E7936DA3B07E2F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6D90B58789FC9816079EF5D</key>
+		<key>EE85DE673D3DFD91C2ED409C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
