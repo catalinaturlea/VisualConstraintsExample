@@ -1,0 +1,27 @@
+PODS:
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0):
+    - CocoaLumberjack/Default
+  - FBSnapshotTestCase (1.8.1)
+  - VisualConstraints (1.0.0):
+    - CocoaLumberjack
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - VisualConstraints (from `../`)
+
+EXTERNAL SOURCES:
+  VisualConstraints:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
+  VisualConstraints: 6e189b956ec8a1dd3f9ac0fcc6ff34bef14060f6
+
+COCOAPODS: 0.36.1
