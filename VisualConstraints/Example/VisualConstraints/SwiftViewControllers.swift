@@ -20,7 +20,7 @@ class SwiftExampleViewController: UIViewController {
         contentView.addConstraintsForHeight(200)
         contentView.addConstraintsToCenter()
         contentView.backgroundColor = UIColor.redColor()
-        contentView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         
         // Adding a label to the contentView
         let label = UILabel()
